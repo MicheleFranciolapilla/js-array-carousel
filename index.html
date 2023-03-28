@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link a Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- LInk a Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Link ai fogli di stile -->
+    <link rel="stylesheet" href="assets/css/reset_and_utilities.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Carosello di immagini (JS)</title>
+</head>
+<body>
+    <div id="page_container" class="vh-100">
+        <header>
+            <h1 class="text-center text-primary">CAROSELLO</h1>
+        </header>
+        <main class="h-75 w-100 d-flex justify-content-between align-items-center">
+            <h2 id="p_arrow" class="px-2"><i class="fa-solid fa-circle-arrow-left"></i></h2>
+            <section id="carousel" class="h-100 w-75 border border-3">
+                <div id="img_container" class="h-100 w-100 overflow-auto">
+                    <img src="assets/img/01 - 1600X1966.webp" alt="foto 1">
+                </div>
+            </section>
+            <h2 id="n_arrow" class="px-2"><i class="fa-solid fa-circle-arrow-right"></i></h2>
+        </main>
+    </div>
+
+    
+    <!-- Script per Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Script dedicato -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

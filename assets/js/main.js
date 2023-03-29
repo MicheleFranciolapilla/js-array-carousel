@@ -20,11 +20,13 @@
 // 2. Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 // 3. Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?"
 
-const   img_array = ["assets/img/01.webp",
-                     "assets/img/02.webp",
-                     "assets/img/03.webp", 
-                     "assets/img/04.webp", 
-                     "assets/img/05.webp"];
+const   img_array   = [ "assets/img/01.webp",
+                        "assets/img/02.webp",
+                        "assets/img/03.webp", 
+                        "assets/img/04.webp", 
+                        "assets/img/05.webp"];
+const   prev_arrow  = document.getElementById("prev");
+const   next_arrow  = document.getElementById("next"); 
 
 function init_img_array(where_to_append, array)
 {
@@ -47,4 +49,39 @@ function init_img_array(where_to_append, array)
     }
 }
 
+prev_arrow.addEventListener("click", function()
+{
+    let active_img = document.querySelector(".active");
+    let new_active;
+    if (active_img.classList.contains("first"))
+    {
+        new_active = document.querySelector(".last");
+    }
+    else
+    {
+        new_active = active_img.previousElementSibling;
+    }
+    active_img.classList.remove("active");
+    new_active.classList.add("active");
+});
+
+next_arrow.addEventListener("click", function()
+{
+    let active_img = document.querySelector(".active");
+    let new_active;
+    if (active_img.classList.contains("last"))
+    {
+        new_active = document.querySelector(".first");
+    }
+    else
+    {
+        new_active = active_img.nextElementSibling;
+    }
+    active_img.classList.remove("active");
+    new_active.classList.add("active");
+});
+
 init_img_array("#carousel",img_array);
+let image_set = document.querySelectorAll(".image");
+image_set[2].setAttribute("style","object-position: right center;");
+image_set[4].setAttribute("style","object-position: center;");

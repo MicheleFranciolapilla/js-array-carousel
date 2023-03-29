@@ -1,5 +1,5 @@
 
-#carousel img
+#carousel .image
 {
     display: none;
     width: 100%;
@@ -8,7 +8,13 @@
     object-position: center 35%;
 }
 
-#carousel img.active
+#carousel .image.active
 {
     display: inline-block;
+}
+
+#prev, #next
+{
+    font-size: 3rem;
+    cursor: pointer;
 }

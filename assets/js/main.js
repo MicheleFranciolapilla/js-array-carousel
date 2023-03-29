@@ -57,19 +57,24 @@ function set_thumbnail_img_id()
         thumbnail_img_set[i].setAttribute("id",`img-${i + 1}`);
         thumbnail_img_set[i].setAttribute("onclick",`thumbnail_img_checked(${i})`);
     }
-    console.log(thumbnail_img_set);
 }
 
 function thumbnail_img_checked(img_index)
 {
-    let img_set = document.querySelectorAll("#thumbnail .image");
-    if (img_set[img_index].classList.contains("active"))
+    let img_carousel = document.querySelectorAll("#carousel .image");
+    let img_thumbnail = document.querySelectorAll("#thumbnail .image");
+    if (!img_carousel[img_index].classList.contains("active"))
     {
-        console.log("niente di fatto");
-    }
-    else
-    {
-        console.log("sei sulla buona strada");
+        for (let i = 0; i < img_carousel.length; i++)
+        {
+            if (img_carousel[i].classList.contains("active"))
+            {
+                img_carousel[i].classList.remove("active");
+                img_thumbnail[i].classList.remove("active");
+            }
+        }
+        img_carousel[img_index].classList.add("active");
+        img_thumbnail[img_index].classList.add("active");   
     }
 }
 

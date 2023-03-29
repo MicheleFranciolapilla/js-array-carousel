@@ -20,14 +20,21 @@
 // 2. Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 // 3. Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?"
 
+// *******************************************************************
+
+// COSTANTI GLOBALI
+// Array con gli url locali delle immagini
 const   img_array   = [ "assets/img/01.webp",
                         "assets/img/02.webp",
                         "assets/img/03.webp", 
                         "assets/img/04.webp", 
                         "assets/img/05.webp"];
+// Elementi "frecce di scorrimento del carosello"
 const   prev_arrow  = document.getElementById("prev");
 const   next_arrow  = document.getElementById("next"); 
 
+// Funzione che inizializza gli array delle immagini: l'array del carosello e quello del thumbnail
+// Il parametro "where_to_append" identifica l'id (carousel o thumbnail) mentre "array" si riferisce sempre a "img_array"
 function init_img_array(where_to_append, array)
 {
     let container = document.querySelector(where_to_append);
@@ -49,35 +56,44 @@ function init_img_array(where_to_append, array)
     }
 }
 
-function set_thumbnail_img_id()
+// Funzione utilizzata per consentire l'attivazione dell'immagine nel carosello, direttamente da thumbnail
+// L'attivazione dell'immagine passa attraverso le funzioni "set_thumbnail_img_onclick" e "thumbnail_img_clicked.
+// "set_thumbnail_img_onclick" inserisce l'attributo "onclick" in tutti i tag "img" del thumbnail, passando la posizione dell'immagine cliccata attraverso parametro alla funzione "thumbnail_img_clicked"
+function set_thumbnail_img_onclick()
 {
     let thumbnail_img_set = document.querySelectorAll("#thumbnail .image");
     for (let i = 0; i < thumbnail_img_set.length; i++)
     {
-        thumbnail_img_set[i].setAttribute("id",`img-${i + 1}`);
-        thumbnail_img_set[i].setAttribute("onclick",`thumbnail_img_checked(${i})`);
+        thumbnail_img_set[i].setAttribute("onclick",`thumbnail_img_clicked(${i})`);
     }
 }
 
-function thumbnail_img_checked(img_index)
+// "thumbnail_img_clicked" viene evocata al click sulle immagini del thumbnail, ricevendo la posizione dell'immagine stessa, direttamente come parametro.
+function thumbnail_img_clicked(img_index)
 {
+    // Variabili "array di elementi" dei due contenitori principali carosello (#carousel) e miniature (#thumbnail)
     let img_carousel = document.querySelectorAll("#carousel .image");
     let img_thumbnail = document.querySelectorAll("#thumbnail .image");
+    // If che verifica che la miniatura cliccata non sia gia' attiva, nel qual caso la funzione passa oltre
     if (!img_carousel[img_index].classList.contains("active"))
     {
+        // Caso in cui la miniatura cliccata non sia quella gia' attiva
         for (let i = 0; i < img_carousel.length; i++)
         {
+            // Si individua la posizione dell'immagine attiva (in entrambi i contenitori) e la si disattiva
             if (img_carousel[i].classList.contains("active"))
             {
                 img_carousel[i].classList.remove("active");
                 img_thumbnail[i].classList.remove("active");
             }
         }
+        // Solo alla fine del ciclo di individuazione dell'immagine attiva e della conseguente disattivazione, si attiva quella cliccata
         img_carousel[img_index].classList.add("active");
         img_thumbnail[img_index].classList.add("active");   
     }
 }
 
+// Event listener relativo al click sulla freccia sinistra
 prev_arrow.addEventListener("click", function()
 {
     let active_img = document.querySelectorAll(".active");
@@ -97,6 +113,7 @@ prev_arrow.addEventListener("click", function()
     }
 });
 
+// Event listener relativo al click sulla freccia destra
 next_arrow.addEventListener("click", function()
 {
     let active_img = document.querySelectorAll(".active");
@@ -117,9 +134,12 @@ next_arrow.addEventListener("click", function()
 });
 
 // Sequenza principale
+// Inizializzazione dei due array (carosello e miniature)
 init_img_array("#carousel",img_array);
 init_img_array("#thumbnail",img_array);
-set_thumbnail_img_id();
+// Inserimento dell'evento "onlick" nelle immagini in miniatura e della relativa funzione parametrica
+set_thumbnail_img_onclick();
+// Centratura, nel carosello, delle immagini nr 3 e 5
 let image_set = document.querySelectorAll(".image");
 image_set[2].setAttribute("style","object-position: right center;");
 image_set[4].setAttribute("style","object-position: center;");

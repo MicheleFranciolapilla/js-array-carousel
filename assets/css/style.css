@@ -27,17 +27,24 @@ header
     cursor: pointer;
 }
 
-#thumbnails
+#thumbnail
 {
     width: 60%;
     height: 10%;
     align-self: center;
 }
 
-#thumbnails .image
+#thumbnail .image
 {
     width: calc(90% / var(--img_nr));
     height: 80%;  
     object-fit: cover; 
     object-position: center 35%;
+    opacity: 0.3;
+}
+
+#thumbnail .image.active
+{
+    opacity: 1;
+    border: 3px solid blue;
 }

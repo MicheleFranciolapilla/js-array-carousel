@@ -51,38 +51,44 @@ function init_img_array(where_to_append, array)
 
 prev_arrow.addEventListener("click", function()
 {
-    let active_img = document.querySelector(".active");
-    let new_active;
-    if (active_img.classList.contains("first"))
+    let active_img = document.querySelectorAll(".active");
+    let new_active = [];
+    if (active_img[0].classList.contains("first"))
     {
-        new_active = document.querySelector(".last");
+        new_active = document.querySelectorAll(".last");
     }
     else
     {
-        new_active = active_img.previousElementSibling;
+        new_active.push(active_img[0].previousElementSibling, active_img[1].previousElementSibling);
     }
-    active_img.classList.remove("active");
-    new_active.classList.add("active");
+    for (let i = 0; i < active_img.length; i++)
+    {
+        active_img[i].classList.remove("active");
+        new_active[i].classList.add("active");
+    }
 });
 
 next_arrow.addEventListener("click", function()
 {
-    let active_img = document.querySelector(".active");
-    let new_active;
-    if (active_img.classList.contains("last"))
+    let active_img = document.querySelectorAll(".active");
+    let new_active = [];
+    if (active_img[0].classList.contains("last"))
     {
-        new_active = document.querySelector(".first");
+        new_active = document.querySelectorAll(".first");
     }
     else
     {
-        new_active = active_img.nextElementSibling;
+        new_active.push(active_img[0].nextElementSibling, active_img[1].nextElementSibling);
     }
-    active_img.classList.remove("active");
-    new_active.classList.add("active");
+    for (let i = 0; i < active_img.length; i++)
+    {
+        active_img[i].classList.remove("active");
+        new_active[i].classList.add("active");
+    }
 });
 
 init_img_array("#carousel",img_array);
-init_img_array("#thumbnails",img_array);
+init_img_array("#thumbnail",img_array);
 let image_set = document.querySelectorAll(".image");
 image_set[2].setAttribute("style","object-position: right center;");
 image_set[4].setAttribute("style","object-position: center;");

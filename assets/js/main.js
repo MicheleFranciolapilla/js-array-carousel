@@ -19,3 +19,32 @@
 // 1. Costruiamo del carosello una versione statica contenente solamente un'immagine. Di questa versione statica al momento opportuno commenteremo (oscureremo) alcuni elementi per poterli riprodurre dinamicamente in js. Potremo quindi usarli come "template".
 // 2. Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 // 3. Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?"
+
+const   img_array = ["assets/img/01.webp",
+                     "assets/img/02.webp",
+                     "assets/img/03.webp", 
+                     "assets/img/04.webp", 
+                     "assets/img/05.webp"];
+
+function init_img_array(where_to_append, array)
+{
+    let container = document.querySelector(where_to_append);
+    for (let i = 0; i < array.length; i++)
+    {
+        let img_item = document.createElement("img");
+        img_item.setAttribute("src",array[i]);
+        img_item.setAttribute("alt",`Foto nr ${i + 1}`);
+        img_item.className = "image";
+        switch (i)
+        {
+            case 0:
+                img_item.classList.add("first","active");
+                break;
+            case (array.length - 1):
+                img_item.classList.add("last");
+        }
+        container.append(img_item);
+    }
+}
+
+init_img_array("#carousel",img_array);

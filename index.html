@@ -18,19 +18,17 @@
     <title>Carosello di immagini (JS)</title>
 </head>
 <body>
-    <div id="page_container" class="vh-100">
+    <div id="page_container" class="vh-100 d-flex flex-column m-0 p-0">
         <header>
             <h1 class="text-center text-primary">CAROSELLO</h1>
         </header>
-        <main class="h-75 w-100 d-flex justify-content-between align-items-center">
-            <h2 id="p_arrow" class="px-2"><i class="fa-solid fa-circle-arrow-left"></i></h2>
-            <section id="carousel" class="h-100 w-75 border border-3">
-                <div id="img_container" class="h-100 w-100 overflow-auto">
-                    <img src="assets/img/01 - 1600X1966.webp" alt="foto 1">
-                </div>
+        <main class="row h-75 align-items-center m-0 p-0">
+            <h2 id="p_arrow" class="col-1 text-center"><i class="fa-solid fa-circle-arrow-left"></i></h2>
+            <section id="carousel" class="h-100 col-10 border border-3 p-0">
             </section>
-            <h2 id="n_arrow" class="px-2"><i class="fa-solid fa-circle-arrow-right"></i></h2>
+            <h2 id="n_arrow" class="col-1 text-center"><i class="fa-solid fa-circle-arrow-right"></i></h2>
         </main>
+        <footer></footer>
     </div>
 
     

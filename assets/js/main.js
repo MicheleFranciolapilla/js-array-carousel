@@ -82,6 +82,7 @@ next_arrow.addEventListener("click", function()
 });
 
 init_img_array("#carousel",img_array);
+init_img_array("#thumbnails",img_array);
 let image_set = document.querySelectorAll(".image");
 image_set[2].setAttribute("style","object-position: right center;");
 image_set[4].setAttribute("style","object-position: center;");

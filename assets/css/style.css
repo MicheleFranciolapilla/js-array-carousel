@@ -1,3 +1,11 @@
+:root
+{
+    --img_nr    : 5;
+}
+header
+{
+    flex-basis: 10%;
+}
 
 #carousel .image
 {
@@ -17,4 +25,19 @@
 {
     font-size: 3rem;
     cursor: pointer;
+}
+
+#thumbnails
+{
+    width: 60%;
+    height: 10%;
+    align-self: center;
+}
+
+#thumbnails .image
+{
+    width: calc(90% / var(--img_nr));
+    height: 80%;  
+    object-fit: cover; 
+    object-position: center 35%;
 }

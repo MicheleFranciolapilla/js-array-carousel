@@ -25,7 +25,17 @@ header
 {
     font-size: 3rem;
     cursor: pointer;
+    color: white;
+    transition: all 20ms;
 }
+
+#prev:active, #next:active
+{
+    color:blue;
+    font-size: 4rem;
+}
+
+
 
 #thumbnail
 {

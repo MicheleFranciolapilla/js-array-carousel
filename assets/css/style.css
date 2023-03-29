@@ -51,6 +51,7 @@ header
     object-fit: cover; 
     object-position: center 35%;
     opacity: 0.3;
+    cursor: pointer;
 }
 
 #thumbnail .image.active

@@ -49,6 +49,30 @@ function init_img_array(where_to_append, array)
     }
 }
 
+function set_thumbnail_img_id()
+{
+    let thumbnail_img_set = document.querySelectorAll("#thumbnail .image");
+    for (let i = 0; i < thumbnail_img_set.length; i++)
+    {
+        thumbnail_img_set[i].setAttribute("id",`img-${i + 1}`);
+        thumbnail_img_set[i].setAttribute("onclick",`thumbnail_img_checked(${i})`);
+    }
+    console.log(thumbnail_img_set);
+}
+
+function thumbnail_img_checked(img_index)
+{
+    let img_set = document.querySelectorAll("#thumbnail .image");
+    if (img_set[img_index].classList.contains("active"))
+    {
+        console.log("niente di fatto");
+    }
+    else
+    {
+        console.log("sei sulla buona strada");
+    }
+}
+
 prev_arrow.addEventListener("click", function()
 {
     let active_img = document.querySelectorAll(".active");
@@ -87,8 +111,10 @@ next_arrow.addEventListener("click", function()
     }
 });
 
+// Sequenza principale
 init_img_array("#carousel",img_array);
 init_img_array("#thumbnail",img_array);
+set_thumbnail_img_id();
 let image_set = document.querySelectorAll(".image");
 image_set[2].setAttribute("style","object-position: right center;");
 image_set[4].setAttribute("style","object-position: center;");
